@@ -7,6 +7,7 @@ df = pd.read_csv("topics.csv")
 # This is a dataframe which reads the csv file and stores the data in a tabular format. The csv file contains the topics and their descriptions.
 
 for index, row in df.iterrows():
+    # Iterrows is a pnadas dataframe method which iterates over the rows of the dataframe. It returns an iterator yielding index and row data for each row. 
     pdf.add_page()
     pdf.set_text_color(255, 0, 0)
     # this sets the text color to a shade of gray. The parameters are RGB values.
@@ -16,7 +17,11 @@ for index, row in df.iterrows():
     pdf.cell(w = 0, h = 10, txt = row["Topic"], ln = 1, align = "L")
     pdf.line(10, 22, 200, 22)
     # Add line under the topic name. The parameters are x1, y1, x2, y2. The line will be drawn from (x1, y1) to (x2, y2).
-
+    
+    for i in range(row["Pages"] - 1):
+        # row[Pages} is dedined as the number of pages to be created for each topic. The first page is already created,
+        # so we need to create (Pages - 1) more pages.
+        pdf.add_page()
 
 
 

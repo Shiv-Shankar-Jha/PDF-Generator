@@ -8,10 +8,12 @@ pdf.set_auto_page_break(auto=False, margin=0)
 # The margin parameter is set to 0, which means that there will be no margin on the pages.
 
 df = pd.read_csv("topics.csv")
-# This is a dataframe which reads the csv file and stores the data in a tabular format. The csv file contains the topics and their descriptions.
+# This is a dataframe which reads the csv file and stores the data in a tabular format.
+#  The csv file contains the topics and their descriptions.
 
 for index, row in df.iterrows():
-    # Iterrows is a pnadas dataframe method which iterates over the rows of the dataframe. It returns an iterator yielding index and row data for each row. 
+    # Iterrows is a pnadas dataframe method which iterates over the rows of the dataframe.
+    #  It returns an iterator yielding index and row data for each row. 
     pdf.add_page()
     pdf.set_text_color(255, 0, 0)
     # this sets the text color to a shade of gray. The parameters are RGB values.
@@ -54,10 +56,4 @@ for index, row in df.iterrows():
     # Adds lines to the master page, 12 is starting point of the line and 290 is the end point of the line(Vertically).
     # The lines are drawn at an interval of 10 mm.
 
-
-
-
-# pdf.add_page()
-# pdf.set_font(family = "Times", size = 12, style = "B")
-# pdf.cell(w = 0, h = 10, txt = "Hello World", ln = 1, align = "L", border=1)
 pdf.output("output.pdf")
